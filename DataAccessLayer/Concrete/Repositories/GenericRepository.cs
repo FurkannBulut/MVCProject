@@ -25,6 +25,12 @@ namespace DataAccessLayer.Concrete.Repositories
             c.SaveChanges();
         }
 
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
+            //bir dizide veya listede sadece bir tane değer döndürmek için kullanılan metottur.
+        }
+
         public void Insert(T p)
         {
             _object.Add(p);
